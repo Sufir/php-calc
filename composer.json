@@ -1,0 +1,26 @@
+{
+    "name": "sufir/php-calc",
+    "description": "",
+    "keywords": [
+        "calc"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sufir",
+            "email": "sufir@mihailovka.info"
+        }
+    ],
+    "require": {
+        "php": ">= 5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "sufir\\Calc\\": "lib"
+        }
+    }
+}
