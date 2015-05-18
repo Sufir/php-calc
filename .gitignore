@@ -1,2 +1,4 @@
 /nbproject/
 /vendor/
+*.log
+/example/*.log
