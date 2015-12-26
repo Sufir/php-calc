@@ -27,7 +27,6 @@ interface Token
     /**
      *
      * @param string $value
-     * @return \Sufir\Calc\Token
      * @throws \InvalidArgumentException
      */
     public function __construct($value);

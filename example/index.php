@@ -17,8 +17,6 @@ echo "\n", implode(' ', $tokens);
 $converter = new sufir\Calc\Converter;
 $tokensPRN = $converter->converToPostfix($tokens);
 
-//echo "\n", $result = implode(' ', $tokensPRN);
-
 $calc = new sufir\Calc\Calc;
 
 $calc->registerFunction('sin', function($arg) {

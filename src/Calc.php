@@ -108,10 +108,10 @@ class Calc
      * @param string $name
      * @return \Sufir\Calc\Calc
      */
-    public function registerVariable($name, $value)
+    /*public function registerVariable($name, $value)
     {
         return $this;
-    }
+    }*/
 
     /**
      * @param string $operator
