@@ -36,6 +36,9 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
         $tokens = $this->lexer->parse($expr);
         $converted = $this->сonverter->converToPostfix($tokens);
 
+        //echo "\n\n-----------------\n", $expr, "\n", $resultExpr = implode(' ', $converted), "\n";
+        //echo "\n\n-----------------\n", $expr, "\n", $canonical, "\n", implode(' ', $converted), "\n";
+
         $this->assertEquals($canonical, implode(' ', $converted));
     }
 

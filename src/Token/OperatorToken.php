@@ -27,7 +27,7 @@ final class OperatorToken extends AbstractToken
 
     /**
      *
-     * @param type $assoc
+     * @param string $assoc
      * @return integer
      */
     public function getPriority($assoc = 'left')

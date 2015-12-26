@@ -36,6 +36,6 @@ final class FunctionToken extends AbstractToken
      */
     protected function validate($value)
     {
-        return preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9\_]+$/i", $value);
+        return !!preg_match("/^[a-zA-Z]{1}[a-zA-Z0-9\_]+$/i", $value);
     }
 }

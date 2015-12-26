@@ -67,8 +67,7 @@ class Lexer
                 // то минус означает отрицательное число
                 if (!$lastTokenType) {
                     $lastTokenType = Token::TYPE_NUMBER;
-                } elseif (
-                    $lastTokenType === Token::TYPE_NUMBER
+                } elseif ($lastTokenType === Token::TYPE_NUMBER
                     || $lastToken === ')'
                 ) {
                     $stack[] = $tokenFactory->create($lastTokenType, $lastToken);
@@ -105,8 +104,7 @@ class Lexer
                 if (!$lastTokenType) {
                     $lastTokenType = Token::TYPE_FUNCTION;
                     $lastToken = $char;
-                } elseif (
-                    $lastTokenType === Token::TYPE_FUNCTION
+                } elseif ($lastTokenType === Token::TYPE_FUNCTION
                     || $lastTokenType === Token::TYPE_VARIABLE
                 ) {
                     $lastToken .= $char;
@@ -121,8 +119,7 @@ class Lexer
                 if (!$lastTokenType) {
                     $lastTokenType = Token::TYPE_NUMBER;
                     $lastToken = $char;
-                } elseif (
-                    $lastTokenType === Token::TYPE_NUMBER
+                } elseif ($lastTokenType === Token::TYPE_NUMBER
                     || $lastTokenType === Token::TYPE_VARIABLE
                     || $lastTokenType === Token::TYPE_FUNCTION
                 ) {

@@ -106,7 +106,6 @@ class Calc
     /**
      *
      * @param string $name
-     * @param \Closure $callable
      * @return \Sufir\Calc\Calc
      */
     public function registerVariable($name, $value)

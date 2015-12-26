@@ -10,6 +10,7 @@
 namespace Sufir\Calc\Token;
 
 use Sufir\Calc\Token;
+
 /**
  * AbstractToken
  *
