@@ -33,28 +33,25 @@ class Calc
     {
         $stack = new \SplStack;
         foreach ($tokens as $token) {
-            // Если на вход подан операнд, он помещается на вершину стека
             if ($token->isNumber()) {
                 $stack->push($token);
 
-                // Если на вход подан знак операции
             } elseif ($token->isOperator()) {
                 if ($stack->count() < 2) {
-                    throw new \Exception('Ошибочка вышла! Недостаточно операндов для бинарного оператора: ' . $token);
+                    throw new \Exception(
+                        'Недостаточно операндов для бинарного оператора: '
+                        . $token
+                    );
 
-                // операция выполняется над требуемым количеством значений,
-                // извлечённых из стека, взятых в порядке добавления
                 } elseif ($stack->count() > 1) {
                     $second = $stack->pop();
                     $first = $stack->pop();
 
                     $result = $this->calc((string) $token, (string) $first, (string) $second);
 
-                    // Результат выполненной операции кладётся на вершину стека
                     $stack->push($result);
                 }
 
-                // Если на вход подана функция
             } elseif ($token->isFunction()) {
                 if (!isset($this->functions[$token->getValue()])) {
                     throw new \Exception('Не найдена функция: ' . $token->getValue());
@@ -63,7 +60,10 @@ class Calc
                 $countOfArguments = $this->functions[$token->getValue()]['args'];
 
                 if ($stack->count() < $countOfArguments) {
-                    throw new \Exception('Ошибочка вышла! Недостаточно аргументов для функции: ' . $token);
+                    throw new \Exception(
+                        'Недостаточно аргументов для функции: '
+                        . $token
+                    );
                 }
 
                 $arguments = array();
@@ -104,21 +104,12 @@ class Calc
     }
 
     /**
-     *
+     * @todo
      * @param string $name
      * @return \Sufir\Calc\Calc
      */
     public function registerVariable($name, $value)
     {
-        $objReflector = new \ReflectionObject($callable);
-        $reflector = $objReflector->getMethod('__invoke');
-        $parameters = $reflector->getParameters();
-
-        $this->functions[$name] = array(
-            'args' => count($parameters),
-            'func' => $callable,
-        );
-
         return $this;
     }
 

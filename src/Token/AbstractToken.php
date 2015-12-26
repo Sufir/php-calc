@@ -35,7 +35,9 @@ abstract class AbstractToken implements Token
     public function __construct($value)
     {
         if (!$this->validate($value)) {
-            throw new \InvalidArgumentException("Недопустимое значение {$value} для токена " . __CLASS__ . "!");
+            throw new \InvalidArgumentException(
+                "Недопустимое значение {$value} для токена " . __CLASS__ . "!"
+            );
         }
 
         $this->value = $this->sanitize($value);
