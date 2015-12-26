@@ -1,28 +1,28 @@
 <?php
 
 /**
- * DelimiterToken.php
+ * VariableToken.php
  *
- * @date 04.04.2015 0:43:12
+ * @date 28.03.2015 2:49:19
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc\Token;
+namespace Sufir\Calc\Token;
 
 /**
- * DelimiterToken
+ * VariableToken
  *
- * Description of DelimiterToken
+ * Переменная
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc\Token
+ * @package Sufir\Calc\Token
  */
-class DelimiterToken extends AbstractToken
+final class VariableToken extends AbstractToken
 {
     /**
      *
      * @param string $value
-     * @return integer|float
+     * @return string
      */
     protected function sanitize($value)
     {
@@ -36,6 +36,6 @@ class DelimiterToken extends AbstractToken
      */
     protected function validate($value)
     {
-        return ($value === ',');
+        return preg_match('/^[\$]{1}[a-zA-Z\_0-9]+$/', $value);
     }
 }

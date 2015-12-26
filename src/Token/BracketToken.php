@@ -7,7 +7,7 @@
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc\Token;
+namespace Sufir\Calc\Token;
 
 /**
  * BracketToken
@@ -15,11 +15,10 @@ namespace sufir\Calc\Token;
  * Скобки
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc\Token
+ * @package Sufir\Calc\Token
  */
-class BracketToken extends AbstractToken
+final class BracketToken extends AbstractToken
 {
-
     const OPEN = '(';
     const CLOSE = ')';
 

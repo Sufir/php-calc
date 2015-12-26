@@ -7,9 +7,9 @@
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc;
+namespace Sufir\Calc;
 
-use sufir\Calc\Token\AbstractToken;
+use Sufir\Calc\Token\AbstractToken;
 
 /**
  * Calc
@@ -17,7 +17,7 @@ use sufir\Calc\Token\AbstractToken;
  * Description of Calc
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc
+ * @package Sufir\Calc
  */
 class Calc
 {
@@ -27,7 +27,7 @@ class Calc
 
     /**
      *
-     * @param \sufir\Calc\Token\AbstractToken[] $tokens
+     * @param \Sufir\Calc\Token\AbstractToken[] $tokens
      */
     public function evaluate(array $tokens)
     {
@@ -87,7 +87,7 @@ class Calc
      *
      * @param string $name
      * @param \Closure $callable
-     * @return \sufir\Calc\Calc
+     * @return \Sufir\Calc\Calc
      */
     public function registerFunction($name, \Closure $callable)
     {
@@ -107,7 +107,7 @@ class Calc
      *
      * @param string $name
      * @param \Closure $callable
-     * @return \sufir\Calc\Calc
+     * @return \Sufir\Calc\Calc
      */
     public function registerVariable($name, $value)
     {

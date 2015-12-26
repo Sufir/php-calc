@@ -1,23 +1,23 @@
 <?php
 
 /**
- * NumberToken.php
+ * DelimiterToken.php
  *
- * @date 28.03.2015 2:49:03
+ * @date 04.04.2015 0:43:12
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc\Token;
+namespace Sufir\Calc\Token;
 
 /**
- * NumberToken
+ * DelimiterToken
  *
- * Число
+ * Description of DelimiterToken
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc\Token
+ * @package Sufir\Calc\Token
  */
-class NumberToken extends AbstractToken
+final class DelimiterToken extends AbstractToken
 {
     /**
      *
@@ -26,7 +26,7 @@ class NumberToken extends AbstractToken
      */
     protected function sanitize($value)
     {
-        return $value - 0;
+        return $value;
     }
 
     /**
@@ -36,6 +36,6 @@ class NumberToken extends AbstractToken
      */
     protected function validate($value)
     {
-        return is_numeric($value);
+        return ($value === ',');
     }
 }

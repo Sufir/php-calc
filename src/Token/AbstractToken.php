@@ -7,17 +7,18 @@
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc\Token;
+namespace Sufir\Calc\Token;
 
+use Sufir\Calc\Token;
 /**
  * AbstractToken
  *
  * Description of AbstractToken
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc\Token
+ * @package Sufir\Calc\Token
  */
-abstract class AbstractToken implements IToken
+abstract class AbstractToken implements Token
 {
     /**
      *
@@ -28,7 +29,7 @@ abstract class AbstractToken implements IToken
     /**
      *
      * @param string $value
-     * @return \sufir\Calc\Token\AbstractToken
+     * @return \Sufir\Calc\Token\AbstractToken
      */
     public function __construct($value)
     {

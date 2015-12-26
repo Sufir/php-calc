@@ -1,32 +1,32 @@
 <?php
 
 /**
- * FunctionToken.php
+ * NumberToken.php
  *
- * @date 28.03.2015 2:47:36
+ * @date 28.03.2015 2:49:03
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc\Token;
+namespace Sufir\Calc\Token;
 
 /**
- * FunctionToken
+ * NumberToken
  *
- * Description of FunctionToken
+ * Число
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc\Token
+ * @package Sufir\Calc\Token
  */
-class FunctionToken extends AbstractToken
+final class NumberToken extends AbstractToken
 {
     /**
      *
      * @param string $value
-     * @return string
+     * @return integer|float
      */
     protected function sanitize($value)
     {
-        return strtolower($value);
+        return $value - 0;
     }
 
     /**
@@ -36,6 +36,6 @@ class FunctionToken extends AbstractToken
      */
     protected function validate($value)
     {
-        return preg_match("/[a-zA-Z\_]+/i", $value);
+        return is_numeric($value);
     }
 }

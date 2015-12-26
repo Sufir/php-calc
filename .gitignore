@@ -1,4 +1,7 @@
-/nbproject/
-/vendor/
+build
+composer.lock
+docs
+vendor
+nbproject
 *.log
-/example/*.log
+*.tmp

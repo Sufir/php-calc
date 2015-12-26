@@ -7,7 +7,9 @@
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc;
+namespace Sufir\Calc;
+
+use SplStack;
 
 /**
  * Converter
@@ -15,11 +17,10 @@ namespace sufir\Calc;
  * Description of Converter
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc
+ * @package Sufir\Calc
  */
-class Converter
+final class Converter
 {
-
     /**
      *
      * @param AbstractToken[] $tokens
@@ -27,7 +28,7 @@ class Converter
     public function converToPostfix(array $tokens)
     {
         $output = array();
-        $stack = new \SplStack;
+        $stack = new SplStack;
 
         // Пока есть ещё токены для чтения - читаем очередной токен
         foreach ($tokens as $token) {
@@ -67,7 +68,7 @@ class Converter
             // Если токен - оператор, выталкиваем верхние элементы стека в выход,
             // пока верхним элементом является оператор
             } elseif ($token->isOperator()) {
-                /* @var $token \sufir\Calc\Token\OperatorToken */
+                /* @var $token \Sufir\Calc\Token\OperatorToken */
                 while (!$stack->isEmpty() &&
                     $stack->top()->isOperator() &&
                     (($token->isLeftAssoc() && $token->getPriority() <= $stack->top()->getPriority()) ||

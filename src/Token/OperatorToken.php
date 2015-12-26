@@ -7,7 +7,7 @@
  * @copyright Sklyarov Alexey <sufir@mihailovka.info>
  */
 
-namespace sufir\Calc\Token;
+namespace Sufir\Calc\Token;
 
 /**
  * OperatorToken
@@ -15,19 +15,19 @@ namespace sufir\Calc\Token;
  * Математический оператор
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
- * @package sufir\Calc\Token
+ * @package Sufir\Calc\Token
  */
-class OperatorToken extends AbstractToken
+final class OperatorToken extends AbstractToken
 {
     /**
      *
      * @var array
      */
-    protected $operators = array('*', '/', '+', '-', '^');
+    protected static $operators = array('*', '/', '+', '-', '^');
 
     /**
      *
-     * @param type $operator
+     * @param type $assoc
      * @return integer
      */
     public function getPriority($assoc = 'left')
@@ -85,9 +85,9 @@ class OperatorToken extends AbstractToken
      *
      * @return array
      */
-    public function getAllowedOperators()
+    public static function getAllowedOperators()
     {
-        return $this->operators;
+        return self::$operators;
     }
 
     /**
@@ -107,6 +107,6 @@ class OperatorToken extends AbstractToken
      */
     protected function validate($value)
     {
-        return in_array($value, $this->operators);
+        return in_array($value, self::getAllowedOperators());
     }
 }
