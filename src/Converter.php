@@ -10,6 +10,7 @@
 namespace Sufir\Calc;
 
 use SplStack;
+use Sufir\Calc\Token\AbstractToken;
 
 /**
  * Converter
@@ -22,8 +23,8 @@ use SplStack;
 final class Converter
 {
     /**
-     *
      * @param AbstractToken[] $tokens
+     * @return AbstractToken[]
      */
     public function converToPostfix(array $tokens)
     {
@@ -35,13 +36,13 @@ final class Converter
             // Если токен является числом, добавляем его к выходной строке
             if ($token->isNumber()) {
                 $output[] = $token;
-                // Если токен является функцией, помещаем его в стек
+            // Если токен является функцией, помещаем его в стек
             } elseif ($token->isFunction()) {
                 $stack->push($token);
-                // Если токен является открывающей скобкой, помещаем его в стек
+            // Если токен является открывающей скобкой, помещаем его в стек
             } elseif ($token->isBracket() && $token->isOpen()) {
                 $stack->push($token);
-                // Если токен - разделитель аргументов функции
+            // Если токен - разделитель аргументов функции
             } elseif ($token->isDelimiter()) {
                 // До тех пор, пока верхним элементом стека не станет открывающая скобка,
                 // выталкиваем элементы из стека в выход
@@ -49,7 +50,7 @@ final class Converter
                     $output[] = $stack->pop();
                 }
 
-                // Если токен является закрывающей скобкой
+            // Если токен является закрывающей скобкой
             } elseif ($token->isBracket() && $token->isClose()) {
                 // До тех пор, пока верхним элементом стека не станет открывающая скобка,
                 // выталкиваем элементы из стека в выход
