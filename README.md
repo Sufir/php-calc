@@ -42,7 +42,7 @@ The MIT License (MIT).
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Sufir/php-calc.svg
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/Sufir/php-calc.svg
 [ico-downloads]: https://img.shields.io/packagist/dt/Sufir/php-calc.svg
-[ico-issues]: https://img.shields.io/packagist/dt/Sufir/php-calc.svg
+[ico-issues]: https://img.shields.io/github/issues/Sufir/php-calc.svg
 
 [link-packagist]: https://packagist.org/packages/Sufir/php-calc
 [link-travis]: https://travis-ci.org/Sufir/php-calc

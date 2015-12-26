@@ -104,16 +104,6 @@ class Calc
     }
 
     /**
-     * @todo
-     * @param string $name
-     * @return \Sufir\Calc\Calc
-     */
-    /*public function registerVariable($name, $value)
-    {
-        return $this;
-    }*/
-
-    /**
      * @param string $operator
      * @param integer|float $firstOperand
      * @param integer|float $secondOperand
