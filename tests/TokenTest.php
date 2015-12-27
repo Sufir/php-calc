@@ -177,7 +177,7 @@ class TokenTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('boolean', $operator->isRightAssoc());
         $this->assertInternalType('boolean', $operator->isLeftAssoc());
         $this->assertNotEquals($operator->isLeftAssoc(), $operator->isRightAssoc());
-        $this->assertGreaterThan(0, $operator->getPriority());
+        $this->assertGreaterThan(0, $operator->getPriority('left'));
         $this->assertGreaterThan(0, $operator->getPriority('right'));
 
         return $operator;

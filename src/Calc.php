@@ -33,8 +33,6 @@ final class Calc
 
     private $variables = [];
 
-    //protected $allowedPhpFunctions = false;
-
     /**
      * @param integer $scale
      */
@@ -54,7 +52,7 @@ final class Calc
     {
         $stack = new SplStack;
 
-        //var_dump($tokens);
+        $this->defineVars($variables);
 
         foreach ($tokens as $token) {
             if ($token->isNumber()) {
@@ -166,6 +164,23 @@ final class Calc
         }
 
         $this->variables[$name] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Define new variables.
+     * <br>
+     * Array format ['varName' => 'varValue', ...]
+     *
+     * @param array $variables
+     * @return \Sufir\Calc\Calc
+     */
+    public function defineVars(array $variables = [])
+    {
+        foreach ($variables as $name => $value) {
+            $this->defineVar($name, $value);
+        }
 
         return $this;
     }

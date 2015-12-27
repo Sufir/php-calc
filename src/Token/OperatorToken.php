@@ -44,8 +44,6 @@ final class OperatorToken extends AbstractToken
                     return 2;
                 case '+':
                     return 1;
-                default:
-                    return 0;
             }
         } else {
             switch ($this->value) {
@@ -57,8 +55,6 @@ final class OperatorToken extends AbstractToken
                 case '+':
                 case '-':
                     return 1;
-                default:
-                    return 0;
             }
         }
     }

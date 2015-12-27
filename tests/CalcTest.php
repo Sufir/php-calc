@@ -51,9 +51,7 @@ class CalcTest extends \PHPUnit_Framework_TestCase
             $this->calc->registerFunction($functionName, $functionBody);
         }
 
-        foreach ($variables as $name => $value) {
-            $this->calc->defineVar($name, $value);
-        }
+        $this->calc->defineVars($variables);
 
         $result = $this->calc->evaluate($converted);
 
