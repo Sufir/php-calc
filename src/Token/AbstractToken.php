@@ -9,8 +9,8 @@
 
 namespace Sufir\Calc\Token;
 
-use Sufir\Calc\Token;
 use InvalidArgumentException;
+use Sufir\Calc\Token;
 
 /**
  * AbstractToken
