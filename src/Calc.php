@@ -9,15 +9,15 @@
 
 namespace Sufir\Calc;
 
-use Sufir\Calc\Token;
-use SplStack;
 use Closure;
+use InvalidArgumentException;
 use ReflectionObject;
 use RuntimeException;
-use Sufir\Calc\Token\NumberToken;
+use SplStack;
+use Sufir\Calc\Token;
 use Sufir\Calc\Token\FunctionToken;
+use Sufir\Calc\Token\NumberToken;
 use Sufir\Calc\Token\VariableToken;
-use InvalidArgumentException;
 
 /**
  * Calc
@@ -174,7 +174,7 @@ final class Calc
      * @param string $operator
      * @param integer|float $firstOperand
      * @param integer|float $secondOperand
-     * @return int
+     * @return string|null
      */
     private static function math($operator, $firstOperand, $secondOperand)
     {
