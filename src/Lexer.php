@@ -33,7 +33,7 @@ class Lexer
     public function parse($expr)
     {
         if (!is_string($expr) || strlen($expr) < 1) {
-            throw new InvalidArgumentException('Неверное выражение!');
+            throw new InvalidArgumentException('Wrong expression');
         }
 
         $stack = array();

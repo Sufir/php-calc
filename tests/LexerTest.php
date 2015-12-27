@@ -14,7 +14,7 @@ use Sufir\Calc\Lexer;
 class LexerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Instantiator
+     * @var Lexer
      */
     private $lexer;
 

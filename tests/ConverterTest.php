@@ -29,15 +29,12 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @param string $expr
-     * @dataProvider getPhpExpressions
+     * @dataProvider getExpressions
      */
     public function test($expr, $canonical)
     {
         $tokens = $this->lexer->parse($expr);
         $converted = $this->сonverter->converToPostfix($tokens);
-
-        //echo "\n\n-----------------\n", $expr, "\n", $resultExpr = implode(' ', $converted), "\n";
-        //echo "\n\n-----------------\n", $expr, "\n", $canonical, "\n", implode(' ', $converted), "\n";
 
         $this->assertEquals($canonical, implode(' ', $converted));
     }
@@ -46,12 +43,16 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
      *
      * @return string[][]
      */
-    public function getPhpExpressions()
+    public function getExpressions()
     {
         return [
             [
                 '2 * 2',
                 '2 2 *',
+            ],
+            [
+                '(1 + 2) * 4 + 3',
+                '1 2 + 4 * 3 +',
             ],
             [
                 '0.1 * round(100.1, 0)',
@@ -69,15 +70,18 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
                 'round(256.879, 2)',
                 '256.879 2 round',
             ],
-            /*[
-                '$Pi*$r^2'
+            [
+                '$Pi*$r^2',
+                '$Pi $r 2 ^ *',
             ],
             [
-                '$m*$c^2'
+                '$m*$c^2',
+                '$m $c 2 ^ *'
             ],
             [
-                'd20()+$strength+$perception/2-$poison'
-            ],*/
+                'd20()+$strength+$perception/2-$poison',
+                'd20 $strength + $perception 2 / + $poison -',
+            ],
         ];
     }
 }

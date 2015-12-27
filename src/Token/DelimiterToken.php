@@ -34,7 +34,7 @@ final class DelimiterToken extends AbstractToken
      * @param string $value
      * @return boolean
      */
-    protected function validate($value)
+    public static function validate($value)
     {
         return ($value === ',');
     }

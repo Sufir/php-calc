@@ -32,7 +32,7 @@ final class Converter
         $stack = new SplStack;
 
         foreach ($tokens as $token) {
-            if ($token->isNumber()) {
+            if ($token->isNumber() || $token->isVariable()) {
                 $output[] = $token;
 
             } elseif ($token->isFunction()) {

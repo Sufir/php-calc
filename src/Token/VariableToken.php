@@ -34,8 +34,8 @@ final class VariableToken extends AbstractToken
      * @param string $value
      * @return boolean
      */
-    protected function validate($value)
+    public static function validate($value)
     {
-        return !!preg_match('/^[\$]{1}[a-zA-Z\_0-9]+$/', $value);
+        return !!preg_match('/^[\$]{1}[[:alnum:]]+$/', $value);
     }
 }

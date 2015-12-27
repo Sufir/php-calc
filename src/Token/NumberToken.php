@@ -26,7 +26,7 @@ final class NumberToken extends AbstractToken
      */
     protected function sanitize($value)
     {
-        return $value - 0;
+        return $value;
     }
 
     /**
@@ -34,7 +34,7 @@ final class NumberToken extends AbstractToken
      * @param string $value
      * @return boolean
      */
-    protected function validate($value)
+    public static function validate($value)
     {
         return is_numeric($value);
     }

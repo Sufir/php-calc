@@ -10,6 +10,7 @@
 namespace Sufir\Calc\Token;
 
 use Sufir\Calc\Token;
+use InvalidArgumentException;
 
 /**
  * AbstractToken
@@ -34,9 +35,9 @@ abstract class AbstractToken implements Token
      */
     public function __construct($value)
     {
-        if (!$this->validate($value)) {
-            throw new \InvalidArgumentException(
-                "Недопустимое значение {$value} для токена " . __CLASS__ . "!"
+        if (!static::validate($value)) {
+            throw new InvalidArgumentException(
+                "Wrong value «{$value}» for " . __CLASS__
             );
         }
 
@@ -123,11 +124,4 @@ abstract class AbstractToken implements Token
      * @return mixed
      */
     abstract protected function sanitize($value);
-
-    /**
-     *
-     * @param string $value
-     * @return boolean
-     */
-    abstract protected function validate($value);
 }

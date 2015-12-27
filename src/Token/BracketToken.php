@@ -26,7 +26,7 @@ final class BracketToken extends AbstractToken
      *
      * @var array
      */
-    protected $allowedBrackets = array(
+    private static $allowedBrackets = array(
         BracketToken::OPEN => true,
         BracketToken::CLOSE => true
     );
@@ -66,8 +66,8 @@ final class BracketToken extends AbstractToken
      * @param string $value
      * @return boolean
      */
-    protected function validate($value)
+    public static function validate($value)
     {
-        return isset($this->allowedBrackets[$value]);
+        return isset(self::$allowedBrackets[$value]);
     }
 }

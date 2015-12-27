@@ -10,7 +10,7 @@ namespace Sufir\Calc;
 /**
  * Token
  *
- * Description of Token
+ * Token interface.
  *
  * @author Sklyarov Alexey <sufir@mihailovka.info>
  * @package Sufir\Calc
@@ -30,6 +30,13 @@ interface Token
      * @throws \InvalidArgumentException
      */
     public function __construct($value);
+
+    /**
+     *
+     * @param string $value
+     * @return boolean
+     */
+    static function validate($value);
 
     /**
      *
