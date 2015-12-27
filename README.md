@@ -18,8 +18,58 @@ $ composer require sufir/php-calc
 ## Usage
 
 ``` php
-<?php
-// @todo
+$lexer = new Lexer();
+$converter = new Converter();
+$calc = new Calc();
+
+$calc->registerFunction('d20', function () {
+    return rand(1, 20);
+});
+
+$charAbilities = ['ability' => 15, /*... etc */];
+$difficultyClass = 12;
+$checkExpr = 'd20() + ($ability / 2 – 5)';
+
+$tokens = $lexer->parse($checkExpr);
+$result = $calc->evaluate(
+    $converter->converToPostfix($tokens),
+    $charAbilities
+);
+
+// simple d20 ability check
+if ($result < $difficultyClass) {
+    echo 'You fail!!!';
+} else {
+    echo 'Congratulation!';
+}
+```
+
+``` php
+$lexer = new Lexer();
+$converter = new Converter();
+$calc = new Calc(20);
+
+$expr = '$Pi*$r^2';
+$radiusList = [5, 10, 15, 25, 50];
+$calc->defineVar('$Pi', '3.14159265358979323846');
+$tokens = $lexer->parse($expr);
+
+foreach ($radiusList as $radius) {
+    echo 'Pi * ', $radius , '^2 = ',
+    $calc->evaluate(
+        $converter->converToPostfix($tokens),
+        ['r' => $radius]
+    ),
+    "\n";
+}
+```
+
+```
+Pi * 5^2  = 78.53981633974483096150
+Pi * 10^2 = 314.15926535897932384600
+Pi * 15^2 = 706.85834705770347865350
+Pi * 25^2 = 1963.49540849362077403750
+Pi * 50^2 = 7853.98163397448309615000
 ```
 
 ## Testing
