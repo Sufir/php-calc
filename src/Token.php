@@ -36,7 +36,7 @@ interface Token
      * @param string $value
      * @return boolean
      */
-    static function validate($value);
+    public static function validate($value);
 
     /**
      *
