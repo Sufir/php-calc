@@ -256,8 +256,8 @@ class CalcTest extends \PHPUnit_Framework_TestCase
                                 bcmul($σ, pow(bcmul(2, $Pi), 0.5))
                             ),
                             exp(
-                                bcdiv(
-                                    -pow(bcsub($x, $μ), 2),
+                                -bcdiv(
+                                    pow(bcsub($x, $μ), 2),
                                     bcmul(2, pow($σ, 2))
                                 )
                             )

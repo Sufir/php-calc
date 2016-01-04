@@ -86,8 +86,8 @@ $calc->registerFunction('normal_distribution', function ($x, $σ = 1, $μ = 0) {
             bcmul($σ, pow(bcmul(2, $Pi), 0.5))
         ),
         exp(
-            bcdiv(
-                -pow(bcsub($x, $μ), 2),
+            -bcdiv(
+                pow(bcsub($x, $μ), 2),
                 bcmul(2, pow($σ, 2))
             )
         )
