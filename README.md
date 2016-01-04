@@ -23,6 +23,7 @@ $converter = new Converter();
 $calc = new Calc(20);
 ```
 
+D&D d20 check example:
 ``` php
 $calc->registerFunction('d20', function () {
     return rand(1, 20);
@@ -46,6 +47,7 @@ if ($result < $difficultyClass) {
 }
 ```
 
+Area of a circle example:
 ``` php
 $expr = '$Pi*$r^2';
 $radiusList = [5, 10, 15, 25, 50];
@@ -60,16 +62,17 @@ foreach ($radiusList as $radius) {
     ),
     "\n";
 }
-```
 
-```
+/*
 Pi * 5^2  = 78.53981633974483096150
 Pi * 10^2 = 314.15926535897932384600
 Pi * 15^2 = 706.85834705770347865350
 Pi * 25^2 = 1963.49540849362077403750
 Pi * 50^2 = 7853.98163397448309615000
+*/
 ```
 
+Normal (Gaussian) distribution example:
 ``` php
 $expr = 'normal_distribution(1, $s, $m)';
 
