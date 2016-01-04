@@ -246,6 +246,33 @@ class CalcTest extends \PHPUnit_Framework_TestCase
                 '9000000000000000.0'
             ],
             [
+                'normal_distribution(1, $s, $m)',
+                [
+                    'normal_distribution' => function ($x, $σ = 1, $μ = 0) {
+                        $Pi = '3.1415926536';
+                        $p = bcmul(
+                            bcdiv(
+                                1,
+                                bcmul($σ, pow(bcmul(2, $Pi), 0.5))
+                            ),
+                            exp(
+                                bcdiv(
+                                    -pow(bcsub($x, $μ), 2),
+                                    bcmul(2, pow($σ, 2))
+                                )
+                            )
+                        );
+
+                        return $p;
+                    }
+                ],
+                [
+                    '$s' => 1,
+                    '$m' => 0,
+                ],
+                '0.24196',
+            ],
+            [
                 'd20()+$strength+$perception/2-$poison',
                 [
                     'd20' => function () {

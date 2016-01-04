@@ -20,8 +20,10 @@ $ composer require sufir/php-calc
 ``` php
 $lexer = new Lexer();
 $converter = new Converter();
-$calc = new Calc();
+$calc = new Calc(20);
+```
 
+``` php
 $calc->registerFunction('d20', function () {
     return rand(1, 20);
 });
@@ -45,10 +47,6 @@ if ($result < $difficultyClass) {
 ```
 
 ``` php
-$lexer = new Lexer();
-$converter = new Converter();
-$calc = new Calc(20);
-
 $expr = '$Pi*$r^2';
 $radiusList = [5, 10, 15, 25, 50];
 $calc->defineVar('$Pi', '3.14159265358979323846');
@@ -70,6 +68,33 @@ Pi * 10^2 = 314.15926535897932384600
 Pi * 15^2 = 706.85834705770347865350
 Pi * 25^2 = 1963.49540849362077403750
 Pi * 50^2 = 7853.98163397448309615000
+```
+
+``` php
+$expr = 'normal_distribution(1, $s, $m)';
+
+$calc->defineVar('$s', 1);
+$calc->defineVar('$m', 0);
+$calc->registerFunction('normal_distribution', function ($x, $σ = 1, $μ = 0) {
+    $Pi = '3.1415926536';
+    $p = bcmul(
+        bcdiv(
+            1,
+            bcmul($σ, pow(bcmul(2, $Pi), 0.5))
+        ),
+        exp(
+            bcdiv(
+                -pow(bcsub($x, $μ), 2),
+                bcmul(2, pow($σ, 2))
+            )
+        )
+    );
+
+    return $p;
+});
+
+$tokens = $lexer->parse($expr);
+$nd = $calc->evaluate($tokens);
 ```
 
 ## Testing

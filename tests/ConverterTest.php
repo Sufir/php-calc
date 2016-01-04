@@ -51,6 +51,10 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
                 '2 2 *',
             ],
             [
+                '3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3',
+                '3 4 2 * 1 5 - 2 3 ^ ^ / +',
+            ],
+            [
                 '(1 + 2) * 4 + 3',
                 '1 2 + 4 * 3 +',
             ],
